@@ -1,13 +1,21 @@
 require "pry-byebug"
 class JacksHouse 
     def recite
-      phrases.map.with_index do |_,index|
+      phrases.map.with_index do |_, index|
        line =  phrases[0..index].reverse.join(" ") + "."
        opening_phrase + line
       end.join("\n")
     end
 
-    def random_recite; end
+    def random_recite
+      random_phrases = phrases.shuffle
+      random_phrases.map.with_index do |_, index|
+        line =  random_phrases[0..index].reverse.join(" ") + "."
+        opening_phrase + line
+      end.join("\n")
+
+
+    end
 
     def opening_phrase
       "This is "
