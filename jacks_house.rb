@@ -1,19 +1,25 @@
 require "pry-byebug"
 class JacksHouse 
     def recite
-      phrases.map.with_index do |_,index|
-       line =  phrases[0..index].reverse.join(" ") + "."
-       opening_phrase + line
-      end.join("\n")
+      generate_poem(poem_phrases)
     end
 
-    def random_recite; end
+    def random_recite
+      random_phrases = poem_phrases.shuffle
+      generate_poem(random_phrases)
+    end
+
+    def generate_poem(phrases)
+      phrases.map.with_index do |_, index|
+        opening_phrase + phrases[0..index].reverse.join(" ") + "."
+       end.join("\n")
+    end
 
     def opening_phrase
       "This is "
     end
 
-    def phrases
+    def poem_phrases
       [
         "the house that Jack built",
         "the malt that lay in",

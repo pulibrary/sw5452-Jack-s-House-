@@ -11,11 +11,11 @@ RSpec.describe JacksHouse do
     end 
   end
 
-  xdescribe "#random_recite" do
+  describe "#random_recite" do
     it "recites the poem in random order" do
         recite1 =  jacks_house.random_recite
         recite2 = jacks_house.random_recite
-        expect(recite1.split("/n").count).to eq 12
+        expect(recite1.split("\n").count).to eq 12
         expect(recite1 == recite2).to be false
     end
   end
