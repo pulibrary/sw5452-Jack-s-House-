@@ -15,6 +15,14 @@ class JacksHouse
        end.join("\n")
     end
 
+    def semi_recite
+      phrases_copy = poem_phrases
+      ending_phrase = phrases_copy.delete_at(0)
+      random_phrases = phrases_copy.shuffle
+      random_phrases.unshift(ending_phrase)
+      generate_poem(random_phrases)
+    end
+
     def opening_phrase
       "This is "
     end
